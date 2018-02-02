@@ -7,9 +7,11 @@ import model.Amende;
 import model.Personne;
 import model.Voiture;
 
+import javax.jws.WebService;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
+@WebService(endpointInterface = "systeme_amende.SystemeAmendes")
 public class SystemeAmendesImpl implements SystemeAmendes{
 
     private ListeAmendeSingleton listeAmendes = ListeAmendeSingleton.getInstance();
