@@ -16,7 +16,7 @@ public class ClientSystemeAmende{
     static public void main(String[] args) throws Exception{
         SystemeAmendes sysam;
         URL url = new URL("http://localhost:9999/ws/systemeamendes?wsdl");
-        QName qname = new QName("http://implementations/", "SystemeAmendeImplService");
+        QName qname = new QName("http://implementations/", "SystemeAmendesImplService");
         Service service = Service.create(url, qname);
         sysam = service.getPort(SystemeAmendes.class);
 
