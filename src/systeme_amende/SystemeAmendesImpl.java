@@ -19,6 +19,9 @@ public class SystemeAmendesImpl implements SystemeAmendes{
     @Override
     public void enregistrer(Voiture v) {
         listeVoitures.enregistrerVoiture(v);
+        System.out.println("Voiture enregistrée !");
+        System.out.println(v.toString());
+
     }
 
     @Override
@@ -28,6 +31,8 @@ public class SystemeAmendesImpl implements SystemeAmendes{
         if (voiture.getImmatriculation().equals(immatriculation) && voiture.getModele().equals(modele)){
             Amende amende = new Amende(immatriculation, tarif);
             listeAmendes.addAmende(amende);
+            System.out.println("Amende enregistrée !");
+            System.out.println(amende.toString());
             return amende.getNumero();
         }
         else
@@ -36,12 +41,16 @@ public class SystemeAmendesImpl implements SystemeAmendes{
 
     @Override
     public Amende[] lister(String immatriculation) {
-        Amende[] listeAmendesFromImmatriculation = null;
+        System.out.println("Liste des amendes pour " + immatriculation + " : ");
         Voiture voiture = listeVoitures.getVoitureFromList(immatriculation);
         ArrayList<Amende> amendes = listeAmendes.getAmendesFromVoiture(voiture);
 
         Amende[] res = new Amende[Array.getLength(amendes)];
         amendes.toArray(res);
+
+        for(int i = 0; i < res.length; i++){
+            System.out.println(res[i].toString());
+        }
 
         return res;
     }
@@ -57,4 +66,6 @@ public class SystemeAmendesImpl implements SystemeAmendes{
             listeAmendes.removeAmende(numero);
         }
     }
+
+
 }

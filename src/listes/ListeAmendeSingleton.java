@@ -34,7 +34,6 @@ public class ListeAmendeSingleton {
                 res.add(listeAmende.get(i));
             }
         }
-
         return res;
     }
 
